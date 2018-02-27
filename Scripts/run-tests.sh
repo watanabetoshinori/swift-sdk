@@ -57,7 +57,7 @@ set -o pipefail
 
 # build each scheme
 for SCHEME in ${SCHEMES[@]}; do
-	xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" test | xcpretty
+	xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" -enableCodeCoverage YES test | xcpretty
 	EXIT_CODES+=($?)
 done
 
